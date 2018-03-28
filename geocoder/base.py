@@ -604,3 +604,9 @@ class MultipleResultsQuery(MutableSequence):
                 name, self.__class__.__name__
             ))
         return getattr(self.current_result, name)
+
+    def __setstate__(self, state):
+        self.__dict__ = state
+
+    def __getstate__(self):
+        return self.__dict__
